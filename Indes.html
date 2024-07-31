@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Pergolas - Premium Outdoor Structures</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .carousel-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .carousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .carousel-title {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .carousel-title h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .carousel-title p {
+            margin: 5px 0 0;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .carousel-button {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .carousel-button:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .carousel-image-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .carousel-content {
+            padding: 30px;
+        }
+
+        .carousel-description {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .carousel-features {
+            padding-left: 20px;
+        }
+
+        .carousel-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .carousel-features li:before {
+            content: "\f00c";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .learn-more-btn:hover {
+            background-color: #005bb7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel-header">
+            <button class="carousel-button" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            <div class="carousel-title">
+                <h2 id="productName"></h2>
+                <p id="productPrice"></p>
+            </div>
+            <button class="carousel-button" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="carousel-image-container">
+            <img id="productImage" class="carousel-image" src="" alt="Pergola Product">
+        </div>
+        <div class="carousel-content">
+            <p id="productDescription" class="carousel-description"></p>
+            <h3>Key Features:</h3>
+            <ul id="productFeatures" class="carousel-features"></ul>
+            <a href="#" class="learn-more-btn">Learn More</a>
+        </div>
+    </div>
+
+    <script>
+        const products = [
+            {
+                name: "Automatic Louvered Pergola",
+                price: "$5,499.00 - $9,299.00",
+                description: "Experience the pinnacle of outdoor luxury with our Automatic Louvered Pergola. This cutting-edge structure seamlessly blends the timeless beauty of a pergola with the modern convenience of motorized louvers. At the touch of a button, you can effortlessly adjust shade, light, and ventilation, creating the perfect ambiance for any occasion.",
+                features: [
+                    "Motorized louvers for precise environmental control",
+                    "Weather-resistant construction for year-round use",
+                    "Integrated LED lighting for enchanting evening ambiance",
+                    "Rain sensor for automatic closure during inclement weather",
+                    "Customizable sizes to fit any outdoor space",
+                    "Optional side screens for enhanced privacy and wind protection",
+                    "Smart home integration for seamless control",
+                ],
+                image: "https://uniquepergolas.com.au/wp-content/uploads/2023/05/2-800x800.jpeg.webp"
+            },
+            {
+                name: "Manual Louvered Pergola",
+                price: "$3,499.00 - $7,299.00",
+                description: "Embrace the perfect balance of form and function with our Manual Louvered Pergola. This versatile outdoor structure offers you the flexibility to manually adjust your environment, providing an ideal blend of open-air freedom and protective shade. Crafted for those who appreciate hands-on control and timeless design.",
+                features: [
+                    "Easy-to-operate manual louver system",
+                    "Durable aluminum construction for longevity",
+                    "Customizable design to complement any architectural style",
+                    "Excellent rain and UV protection",
+                    "Optional built-in gutter system for water management",
+                    "Expandable with side curtains or sliding glass",
+                    "Low maintenance requirements for lasting beauty",
+                ],
+                image: "https://uniquepergolas.com.au/wp-content/uploads/2023/05/WhatsApp-Image-2023-02-26-at-10.52.34-PM-800x800.jpeg.webp"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const product = products[currentIndex];
+            const elements = ['productName', 'productPrice', 'productDescription', 'productImage'];
+            
+            elements.forEach(id => {
+                const element = document.getElementById(id);
+                element.classList.remove('fade-in');
+                void element.offsetWidth; // Trigger reflow
+                element.classList.add('fade-in');
+            });
+
+            document.getElementById('productName').textContent = product.name;
+            document.getElementById('productPrice').textContent = product.price;
+            document.getElementById('productImage').src = product.image;
+            document.getElementById('productImage').alt = product.name;
+            document.getElementById('productDescription').textContent = product.description;
+            
+            const featuresList = document.getElementById('productFeatures');
+            featuresList.innerHTML = '';
+            product.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+        }
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + products.length) % products.length;
+            updateCarousel();
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % products.length;
+            updateCarousel();
+        });
+
+        // Initialize the carousel
+        updateCarousel();
+    </script>
+</body>
+</html>
